@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/cc?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.jdbc.Driver
+    #使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #下面在配置文件里面都是黄色的,好像没有生效,可以百度看看新的配置方式是什么
+      #初始化连接池的连接数量 大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      #配置获取连接等待超时的时间
+      max-wait: 60000
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 30000
+      # 用来检测连接是否有效的sql，要求是一个查询语句
+      validation-query: SELECT 1 FROM DUAL
+  mvc:
+    view:
+      #访问的前缀后缀 配合controller中返回字符串跳转页面使用.
+      prefix: classpath:/static/
+      suffix: .html
+      #此项是规定静态资源符合什么路径才会被解析,如果是配置为/static/** 那么所有请求静态资源的路径前面都得带/static/
+    static-path-pattern: /**
+
+mybatis-plus:
+  mapper-locations: classpath:com/**/mapper/xml/*.xml
+
+logging:
+  level:
+    root: info
+server:
+  port: 8899

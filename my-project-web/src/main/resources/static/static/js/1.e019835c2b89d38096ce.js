@@ -1,0 +1,2 @@
+webpackJsonp([1],{"8hXn":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){var t=this.$createElement;return(this._self._c||t)("div",{attrs:{id:"index"}},[this._v("\n  "+this._s(this.content)+"\n")])},staticRenderFns:[]},s=n("VU/8")({data:function(){return{content:"啥都没有"}}},r,!1,null,null,null);e.default=s.exports}});
+//# sourceMappingURL=1.e019835c2b89d38096ce.js.map
