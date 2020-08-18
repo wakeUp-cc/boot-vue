@@ -31,6 +31,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
                 new TreeNode<>(menu.getSeq(), menu.getParentSeq(), menu.getMenuName(), null)
                         .setExtra(new HashMap<String, Object>(1) {{
                             put("path", menu.getMenuPath());
+                            put("icon", menu.getIcon());
                         }}))
                 .collect(Collectors.toList());
         return TreeUtil.build(collect, "0");

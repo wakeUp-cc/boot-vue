@@ -1,6 +1,5 @@
 <template>
   <div id="index">
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 

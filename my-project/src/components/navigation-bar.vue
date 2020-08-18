@@ -1,29 +1,29 @@
 <template>
-  <el-row class="tac" style="height: 100%" type="flex" justify="start">
-    <el-col :span="3" id="navigation">
+  <el-row class="tac" type="flex" justify="start">
+    <el-col :span="24" >
       <el-menu
+        router
         default-active="2"
         class="el-menu-vertical-demo">
         <!--循环树菜单-->
         <div v-for="(menu,index) in treeMenu" :key="index">
-          <!--如果树菜单有子节点,就显示可以展开的样式,index必须是字符串,所以后面+''变成字符串-->
-          <el-submenu :index="index + 1 + ''" v-if="menu.children">
+          <!--如果树菜单有子节点,就显示可以展开的样式,index就是路由地址,通过router属性,开启点击后跳转路由-->
+          <el-submenu :index="menu.path" v-if="menu.children">
             <template slot="title">
-              <i class="el-icon-platform-eleme"></i>
+              <i :class="menu.icon"></i>
               <span>{{menu.name}}</span>
             </template>
             <!--此处自己引用自己,相当于递归调用,将父组件的数据通过组件数据传,传递下去,以此为递归-->
             <navigation-bar :data="menu.children"></navigation-bar>
           </el-submenu>
-          <!--没有子节点,显示为没有子节点的样式,index必须是字符串,所以后面+''变成字符串-->
-          <el-menu-item :index="index + 1 + ''" v-else>
-            <i class="el-icon-menu"></i>
+          <!--没有子节点,显示为没有子节点的样式,index就是路由地址,通过router属性,开启点击后跳转路由-->
+          <el-menu-item :index="menu.path" v-else>
+            <i :class="menu.icon"></i>
             <span slot="title">{{menu.name}}</span>
           </el-menu-item>
         </div>
       </el-menu>
     </el-col>
-    <el-divider direction="vertical"></el-divider>
   </el-row>
 </template>
 
@@ -57,17 +57,17 @@ export default {
 </script>
 
 <style>
-  /*设定占满屏幕的分割线*/
-  .el-divider--vertical {
-    display: inline-block;
-    width: 1px;
+  /*设定导航栏的最外侧的框*/
+  .tac {
     height: 100%;
-    margin: 0 8px;
-    vertical-align: middle;
-    position: relative;
+    width: 13%;
+    float: left
   }
-  /*去掉原本的导航栏分割线*/
+
+  /*设定导航栏右侧的线占满整个屏幕*/
   .el-menu {
-    border-right: 0 !important;
+    border-right: solid 1px;
+    border-color: #e6e6e6;
+    height: 100%;
   }
 </style>

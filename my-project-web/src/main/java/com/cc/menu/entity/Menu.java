@@ -1,19 +1,20 @@
 package com.cc.menu.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
  * 菜单管理
  * </p>
  *
- * @author 
+ * @author
  * @since 2020-08-13
  */
 @Data
@@ -47,6 +48,12 @@ public class Menu implements Serializable {
      */
     @TableField("menu_path")
     private String menuPath;
+
+    /**
+     * 图标
+     */
+    @TableField("icon")
+    private String icon;
 
 
 }
