@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : 65001
 
- Date: 18/08/2020 14:31:44
+ Date: 19/08/2020 17:01:35
 */
 
 SET NAMES utf8mb4;
@@ -53,10 +53,10 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('025662b9b74ffca57199c37cef1cfb3a', '1113', '9c3b1830513cc3b8fc4b76635d32e692', NULL);
-INSERT INTO `user` VALUES ('452bcefadc4acd50acee1b446a28fbcf', 'cc', 'e0323a9039add2978bf5b49550572c7c', NULL);
-INSERT INTO `user` VALUES ('a121c3db60ad94797fed23d06140769a', 'huge', 'b7cf27ffe6ea83cdcf8af2ef29de9285', NULL);
-INSERT INTO `user` VALUES ('b47efa71abc4e3e2863ca5fc2d490f8c', 'qwe', '76d80224611fc919a5d54f0ff9fba446', NULL);
-INSERT INTO `user` VALUES ('e5ee919d06c0cd1e1aec016cb04162d9', 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL);
+INSERT INTO `user` VALUES ('025662b9b74ffca57199c37cef1cfb3a', '1113', '9c3b1830513cc3b8fc4b76635d32e692', '你好');
+INSERT INTO `user` VALUES ('452bcefadc4acd50acee1b446a28fbcf', 'cc', 'e0323a9039add2978bf5b49550572c7c', '池');
+INSERT INTO `user` VALUES ('a121c3db60ad94797fed23d06140769a', 'huge', 'b7cf27ffe6ea83cdcf8af2ef29de9285', '胡哥');
+INSERT INTO `user` VALUES ('b47efa71abc4e3e2863ca5fc2d490f8c', 'qwe', '76d80224611fc919a5d54f0ff9fba446', 'qwe');
+INSERT INTO `user` VALUES ('e5ee919d06c0cd1e1aec016cb04162d9', 'admin', '21232f297a57a5a743894a0e4a801fc3', '管理员');
 
 SET FOREIGN_KEY_CHECKS = 1;
