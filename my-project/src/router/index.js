@@ -8,6 +8,7 @@ export default new Router({
     // 如果访问 / ,则跳转登录页
     {path: '/', redirect: '/login'},
     {path: '/login', component: () => import('@/views/login')},
-    {path: '/index', component: () => import('@/views/index')}
+    {path: '/index', component: () => import('@/views/index')},
+    {path: '/user', component: () => import('@/views/user')}
   ]
 })

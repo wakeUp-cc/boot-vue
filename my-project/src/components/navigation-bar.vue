@@ -1,3 +1,4 @@
+<!--导航栏组件-->
 <template>
   <div id="navigation">
     <el-row class="tac" type="flex" justify="start">
@@ -63,7 +64,7 @@ export default {
   /*设定导航栏的最外侧的框*/
   .tac {
     height: 100%;
-    width: 13%;
+    width: 100%;
     float: left
   }
 

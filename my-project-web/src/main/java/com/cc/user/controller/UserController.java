@@ -1,6 +1,9 @@
 package com.cc.user.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cc.common.entity.CommonQuery;
 import com.cc.common.entity.Result;
 import com.cc.common.enums.ResultStatusEnum;
 import com.cc.user.entity.User;
@@ -8,7 +11,6 @@ import com.cc.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -41,6 +43,11 @@ public class UserController {
     public Result<String> registered(@RequestBody User user) throws Exception {
         iUserService.registered(user);
         return new Result<>(ResultStatusEnum.SUCCESS.code, "注册成功");
+    }
+
+    @RequestMapping("/pageUser")
+    public Result<IPage<User>> pageUser(@RequestBody CommonQuery commonQuery) throws Exception {
+        return new Result<IPage<User>>(ResultStatusEnum.SUCCESS.code, iUserService.page(new Page<>(commonQuery.getCurrent(), commonQuery.getSize())));
     }
 
 }
