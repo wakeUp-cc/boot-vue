@@ -1,30 +1,33 @@
 <template>
-  <el-row class="tac" type="flex" justify="start">
-    <el-col :span="24" >
-      <el-menu
-        router
-        default-active="2"
-        class="el-menu-vertical-demo">
-        <!--循环树菜单-->
-        <div v-for="(menu,index) in treeMenu" :key="index">
-          <!--如果树菜单有子节点,就显示可以展开的样式,index就是路由地址,通过router属性,开启点击后跳转路由-->
-          <el-submenu :index="menu.path" v-if="menu.children">
-            <template slot="title">
-              <i :class="menu.icon"></i>
-              <span>{{menu.name}}</span>
+  <div id="navigation">
+    <el-row class="tac" type="flex" justify="start">
+      <el-col :span="24">
+        <el-menu router default-active="1" class="el-menu-vertical-demo" background-color="#0471c1">
+          <!--循环树菜单-->
+          <div v-for="(menu,index) in treeMenu" :key="index">
+            <!--如果树菜单有子节点,就显示可以展开的样式,index就是路由地址,通过router属性,开启点击后跳转路由-->
+            <template v-if="menu.children">
+              <el-submenu :index="menu.path">
+                <template slot="title">
+                  <i :class="menu.icon"></i>
+                  <span>{{menu.name}}</span>
+                </template>
+                <!--此处自己引用自己,相当于递归调用,将父组件的数据通过组件数据传,传递下去,以此为递归-->
+                <navigation-bar :data="menu.children"></navigation-bar>
+              </el-submenu>
             </template>
-            <!--此处自己引用自己,相当于递归调用,将父组件的数据通过组件数据传,传递下去,以此为递归-->
-            <navigation-bar :data="menu.children"></navigation-bar>
-          </el-submenu>
-          <!--没有子节点,显示为没有子节点的样式,index就是路由地址,通过router属性,开启点击后跳转路由-->
-          <el-menu-item :index="menu.path" v-else>
-            <i :class="menu.icon"></i>
-            <span slot="title">{{menu.name}}</span>
-          </el-menu-item>
-        </div>
-      </el-menu>
-    </el-col>
-  </el-row>
+            <template v-else>
+              <!--没有子节点,显示为没有子节点的样式,index就是路由地址,通过router属性,开启点击后跳转路由-->
+              <el-menu-item :index="menu.path">
+                <i :class="menu.icon"></i>
+                <span slot="title">{{menu.name}}</span>
+              </el-menu-item>
+            </template>
+          </div>
+        </el-menu>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script>
@@ -70,4 +73,10 @@ export default {
     border-color: #e6e6e6;
     height: 100%;
   }
+
+  #navigation, #navigation span {
+    height: 100%;
+    color: #ffffff;
+  }
+
 </style>

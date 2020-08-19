@@ -15,7 +15,6 @@
             </el-form-item>
             <el-form-item>
               <el-button size="small" round @click="loginSubmit">登录</el-button>
-              <el-button size="small" round @click="registered">注册</el-button>
             </el-form-item>
           </el-form>
         </el-card>
@@ -42,10 +41,6 @@ export default {
           this.$router.push('/index')
         }
       })
-    },
-    registered () {
-      let user = {username: this.login.username, password: this.login.password}
-      this.$http.post('/user/registered', user)
     }
   }
 }
@@ -54,6 +49,8 @@ export default {
 <style scoped>
   #login {
     background: url("../assets/登录背景.jpg");
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
     margin: 0;
     height: 100%;
   }

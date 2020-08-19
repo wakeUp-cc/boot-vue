@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <icon/>
     <!--导航栏,并且在登录页面不显示导航栏-->
     <navigation-bar v-show="this.$route.path !== '/login'"></navigation-bar>
     <router-view/>
@@ -7,8 +8,10 @@
 </template>
 
 <script>
+import icon from '@/components/icon'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {'icon': icon}
 }
 </script>
 
@@ -19,6 +22,7 @@ export default {
     padding: 0;
     margin: 0;
   }
+
   * {
     font-size: 15px;
     color: #333;
