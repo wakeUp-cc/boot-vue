@@ -35,7 +35,7 @@ export default {
 
   #common {
     height: 100%;
-    width: 13%;
+    width: 15%;
     float: left;
   }
 </style>

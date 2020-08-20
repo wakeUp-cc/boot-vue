@@ -34,7 +34,6 @@ export default {
     initTableData () {
       this.$http.post('/user/pageUser', this.page).then((result) => {
         this.page = result.data.message
-        console.log(JSON.stringify(this.page))
       })
     }
   },
@@ -48,6 +47,6 @@ export default {
 <style>
   #user {
     float: left;
-    width: 87%;
+    width: 85%;
   }
 </style>
