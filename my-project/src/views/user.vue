@@ -15,7 +15,7 @@
         min-width="400">
       </el-table-column>
     </el-table>
-    <page :total="page.total" :size="page.size"></page>
+    <page :total="page.total" :size="page.size" :current="page.current"></page>
   </div>
 </template>
 
